@@ -20,6 +20,12 @@
  */
 function bind(callback) {
   // write code here
+  const [, ...arrItems] = [...arguments];
+
+  return (...items) => {
+    return callback.apply(this, arrItems)
+      .concat(callback.apply(this, items));
+  };
 }
 
 module.exports = bind;
