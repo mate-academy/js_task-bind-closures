@@ -20,6 +20,13 @@
  */
 function bind(callback) {
   // write code here
+  const func = callback;
+  const storageArgs = [...arguments].filter((el, index) => index > 0);
+
+  return (...args) => {
+    storageArgs.push(...args);
+    return func(...storageArgs);
+  };
 }
 
 module.exports = bind;
