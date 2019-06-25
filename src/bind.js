@@ -19,7 +19,16 @@
  * @return {Function}
  */
 function bind(callback) {
-  // write code here
+  let newArr = [...arguments];
+  const callbackFunc = newArr[0];
+
+  newArr.splice(0, 1);
+
+  return (...args) => {
+    newArr = [...newArr, ...args];
+
+    return callbackFunc(...newArr);
+  };
 }
 
 module.exports = bind;
