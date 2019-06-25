@@ -9,7 +9,7 @@
  *
  * For Example:
  *
- * const f = (...newItems) => { console.log(newItems) };
+ * const f = (...args) => { console.log(args) };
  * const device = bind(f, 1, 2, 3);
  * device(); // 1, 2, 3
  * device(4, 5, 6); // 1, 2, 3, 4, 5, 6
