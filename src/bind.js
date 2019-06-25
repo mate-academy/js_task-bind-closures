@@ -1,5 +1,4 @@
 'use strict';
-
 /**
  * Write a function (factory). It takes a callback as a first param and all
  * the other params after. It creates a function (device). The callback given
@@ -18,8 +17,7 @@
  *
  * @return {Function}
  */
-function bind(callback) {
-  // write code here
-}
-
+function bind(callBack, ...factoryArgs) {
+  return (...deviceArgs) => callBack(...factoryArgs, ...deviceArgs);
+};
 module.exports = bind;
