@@ -18,8 +18,8 @@
  *
  * @return {Function}
  */
-function bind(callback) {
-  // write code here
+function bind(callback, ...baseParams) {
+  return (...extraParams) => [...baseParams].concat([...extraParams]);
 }
 
 module.exports = bind;
