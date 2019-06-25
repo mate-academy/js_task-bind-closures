@@ -9,7 +9,7 @@
  *
  * For Example:
  *
- * const f = (...args) => { console.log(args) };
+ * const f = (...newItems) => { console.log(newItems) };
  * const device = bind(f, 1, 2, 3);
  * device(); // 1, 2, 3
  * device(4, 5, 6); // 1, 2, 3, 4, 5, 6
@@ -18,8 +18,11 @@
  *
  * @return {Function}
  */
-function bind(callback) {
-  // write code here
+function bind(callback, ...items) {
+  const result = [...items];
+  return function(...newItems) {
+    result.push(...newItems);
+    return callback(...result);
+  };
 }
-
 module.exports = bind;
