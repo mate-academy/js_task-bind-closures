@@ -19,7 +19,17 @@
  * @return {Function}
  */
 function bind(callback) {
-  // write code here
+  const [, ...saveParams] = [...arguments];
+
+  if (typeof callback !== 'function') {
+    throw new TypeError(callback + ' is not a functio!');
+  }
+
+  function device(...arg) {
+    return callback.apply(this, saveParams).concat(callback.apply(this, arg));
+  }
+
+  return device;
 }
 
 module.exports = bind;
