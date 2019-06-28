@@ -10,7 +10,7 @@
  * For Example:
  *
  * const f = (...args) => { console.log(args) };
- * const device = bind(f, 1, 2, 3);
+ * const device = bind(f, 1, 2, 3); 
  * device(); // 1, 2, 3
  * device(4, 5, 6); // 1, 2, 3, 4, 5, 6
  *
@@ -18,8 +18,15 @@
  *
  * @return {Function}
  */
-function bind(callback) {
-  // write code here
+function bind(callback, ...baseArgs) {
+  return function device(...extraArgs) {
+      return callback(...baseArgs, ...extraArgs);
+  }
 }
+
+//а можно и так, но пока тяжко читается, сеньйоры так пишут?)
+// function bind(callback, ...baseArgs) {
+//   return (...extraArgs) => callback(...baseArgs, ...extraArgs);
+// }
 
 module.exports = bind;
