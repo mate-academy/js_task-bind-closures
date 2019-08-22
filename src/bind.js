@@ -18,8 +18,12 @@
  *
  * @return {Function}
  */
-function bind(callback) {
-  // write code here
+function bind(func) {
+  const firstArguments = [...arguments].slice(1);
+
+  return function(...secondArguments) {
+    return func(...firstArguments, ...secondArguments);
+  };
 }
 
 module.exports = bind;
