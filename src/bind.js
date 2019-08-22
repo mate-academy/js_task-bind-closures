@@ -19,9 +19,9 @@
  * @return {Function}
  */
 function bind(externalFunc, ...param) {
-  const x = param;
+  const baseParam = param;
 
-  return (...extraParam) => externalFunc(...x, ...extraParam);
+  return (...extraParam) => externalFunc(...baseParam, ...extraParam);
   // write code here
 }
 
