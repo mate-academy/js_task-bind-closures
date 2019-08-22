@@ -18,8 +18,22 @@
  *
  * @return {Function}
  */
+
 function bind(callback) {
-  // write code here
+  let filterArguments = [...arguments].filter((element) => {
+    return typeof element !== 'function';
+  });
+
+  return function() {
+    if ([...arguments].length > 0) {
+      const callbackArguments = callback(...arguments);
+      filterArguments = [...filterArguments, ...callbackArguments];
+
+      return filterArguments;
+    }
+
+    return filterArguments;
+  };
 }
 
 module.exports = bind;
