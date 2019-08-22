@@ -18,7 +18,10 @@
  *
  * @return {Function}
  */
-function bind(callback) {
+function bind(externalFunc, ...param) {
+  const x = param;
+
+  return (...extraParam) => externalFunc(...x, ...extraParam);
   // write code here
 }
 
