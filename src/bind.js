@@ -14,12 +14,14 @@
  * device(); // 1, 2, 3
  * device(4, 5, 6); // 1, 2, 3, 4, 5, 6
  *
- * @param {Function} callback
+ * @param {Function} fn
  *
  * @return {Function}
  */
-function bind(callback) {
-  // write code here
+function bind(fn, ...args) {
+  return function(...secondArg) {
+    return fn(...args, ...secondArg);
+  };
 }
 
 module.exports = bind;
