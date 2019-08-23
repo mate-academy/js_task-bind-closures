@@ -18,8 +18,14 @@
  *
  * @return {Function}
  */
-function bind(callback) {
-  // write code here
+function bind(callback, ...elements) {
+  const allElements = [...elements];
+
+  return (...arg) => {
+    allElements.push(...arg);
+    callback(...allElements);
+    return allElements;
+  };
 }
 
 module.exports = bind;
