@@ -19,10 +19,8 @@
  * @return {Function}
  */
 function bind(callback, ...argums) {
-  const fn = callback;
-
   return function device(...args) {
-    return fn(...argums, ...args);
+    return callback(...argums, ...args);
   };
 }
 
