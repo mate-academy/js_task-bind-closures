@@ -23,8 +23,8 @@ function bind(callback, ...elements) {
 
   return (...arg) => {
     allElements.push(...arg);
-    callback(...allElements);
-    return allElements;
+
+    return callback(...allElements);
   };
 }
 
