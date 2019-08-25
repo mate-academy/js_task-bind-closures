@@ -18,8 +18,15 @@
  *
  * @return {Function}
  */
+
 function bind(callback) {
-  // write code here
+  const firstParams = [...arguments];
+  firstParams.shift();
+
+  return function device(...secondParams) {
+    // eslint-disable-next-line standard/no-callback-literal
+    return callback(...firstParams, ...secondParams);
+  };
 }
 
 module.exports = bind;
