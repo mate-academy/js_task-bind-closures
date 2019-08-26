@@ -19,13 +19,8 @@
  * @return {Function}
  */
 function bind(callback, ...args) {
-  let baseParams = args;
-
   return (...params) => {
-    const result = [...baseParams, ...params];
-    baseParams = result;
-
-    return (callback, [...result]);
+    return (callback, [...args, ...params]);
   };
 }
 
