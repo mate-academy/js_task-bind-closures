@@ -19,9 +19,7 @@
  * @return {Function}
  */
 function bind(fn, ...args) {
-  return function(...addArgs) {
-    return fn(...args, ...addArgs);
-  };
+  return (...addArgs) => fn(...args, ...addArgs);
 }
 
 module.exports = bind;
