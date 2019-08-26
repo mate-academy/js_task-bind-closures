@@ -19,10 +19,7 @@
  * @return {Function}
  */
 function bind(...callback) {
-  const fnCallback = callback.shift();
-  const argsCallback = [...callback];
-
-  return (...args) => fnCallback(...argsCallback, ...args);
+  return (...args) => callback[0](...callback.slice(1), ...args);
 }
 
 module.exports = bind;
