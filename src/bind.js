@@ -19,12 +19,8 @@
  * @return {Function}
  */
 function bind(callback, ...elements) {
-  const allElements = [...elements];
-
   return (...arg) => {
-    allElements.push(...arg);
-
-    return callback(...allElements);
+    return callback(...elements, ...arg);
   };
 }
 
