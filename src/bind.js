@@ -18,8 +18,8 @@
  *
  * @return {Function}
  */
-function bind(...callbackArg) {
-  return (...args) => callbackArg[0](...callbackArg.slice(1), ...args);
+function bind(callback, ...argsDefault) {
+  return (...args) => callback(...argsDefault, ...args);
 }
 
 module.exports = bind;
