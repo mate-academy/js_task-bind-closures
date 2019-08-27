@@ -19,14 +19,8 @@
  * @return {Function}
  */
 
-function bind(callback) {
-  const firstParams = [...arguments];
-  firstParams.shift();
-
-  return function device(...secondParams) {
-    // eslint-disable-next-line standard/no-callback-literal
-    return callback(...firstParams, ...secondParams);
-  };
+function bind(callback, ...firstParams) {
+  return (...secondParams) => callback(...firstParams, ...secondParams);
 }
 
 module.exports = bind;
