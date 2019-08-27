@@ -19,12 +19,8 @@
  * @return {Function}
  */
 function bind(callback, ...params) {
-  const arr = [...params];
-
   const device = (...params2) => {
-    callback(arr.push(...params2));
-
-    return arr;
+    return callback(...params, ...params2);
   };
 
   return device;
