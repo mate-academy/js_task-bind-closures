@@ -20,7 +20,7 @@
  */
 function bind(callback, ...args) {
   return (...params) => {
-    return (callback, [...args, ...params]);
+    return callback(...args, ...params);
   };
 }
 
