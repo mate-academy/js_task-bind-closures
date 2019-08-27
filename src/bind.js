@@ -18,11 +18,8 @@
  *
  * @return {Function}
  */
-function bind(externalFunc, ...param) {
-  const baseParam = param;
-
+function bind(externalFunc, ...baseParam) {
   return (...extraParam) => externalFunc(...baseParam, ...extraParam);
-  // write code here
 }
 
 module.exports = bind;
