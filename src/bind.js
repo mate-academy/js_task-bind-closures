@@ -19,10 +19,8 @@
  * @return {Function}
  */
 function bind(f, ...args) {
-  const firstArgs = [...args];
-
   return (...secondArgs) => {
-    return f(...firstArgs, ...secondArgs);
+    return f(...args, ...secondArgs);
   };
 }
 
