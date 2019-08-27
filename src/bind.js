@@ -19,20 +19,9 @@
  * @return {Function}
  */
 
-function bind(callback) {
-  let filterArguments = [...arguments].filter((element) => {
-    return typeof element !== 'function';
-  });
-
-  return function() {
-    if ([...arguments].length > 0) {
-      const callbackArguments = callback(...arguments);
-      filterArguments = [...filterArguments, ...callbackArguments];
-
-      return filterArguments;
-    }
-
-    return filterArguments;
+function bind(callbackFunction, ...args) {
+  return (...inputArguments) => {
+    return callbackFunction(...args, ...inputArguments);
   };
 }
 
