@@ -19,7 +19,22 @@
  * @return {Function}
  */
 function bind(callback) {
-  // write code here
+  const numArr = [...arguments];
+
+  return function(...args) {
+    if (args) {
+      const arr = [...args];
+
+      for (let i = 0; i < arr.length; i++) {
+        numArr.push(arr[i]);
+      }
+      if (arr.length === 0) {
+        numArr.shift();
+      }
+
+      return callback(...numArr);
+    }
+  };
 }
 
 module.exports = bind;
