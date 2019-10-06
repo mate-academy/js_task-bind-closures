@@ -18,8 +18,17 @@
  *
  * @return {Function}
  */
-function bind(callback) {
-  // write code here
+function bind(callback, ...numbers) {
+  const numbersArr = [...numbers];
+
+  return (...args) => {
+    if (args === undefined) {
+      callback(...numbersArr);
+    }
+
+    numbersArr.push(...args);
+    return callback(...numbersArr);
+  };
 }
 
 module.exports = bind;
