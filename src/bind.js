@@ -22,7 +22,7 @@ function bind(callback, ...arg) {
   const arr = [...arg];
   return (...numbers) => {
     if (numbers === undefined) {
-      return callback(...arr);
+      return arr;
     }
     for (const item of numbers) {
       arr.push(item);
