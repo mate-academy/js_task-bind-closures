@@ -18,8 +18,14 @@
  *
  * @return {Function}
  */
-function bind(callback) {
-  // write code here
+function bind(callback, ...args) {
+  const numArgs = [...args];
+
+  return function device(...params) {
+    params.forEach(n => numArgs.push(n));
+
+    return numArgs;
+  };
 }
 
 module.exports = bind;
