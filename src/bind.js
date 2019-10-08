@@ -18,22 +18,9 @@
  *
  * @return {Function}
  */
-function bind(callback) {
-  const numArr = [...arguments];
-
-  return function(...args) {
-    if (args) {
-      const arr = [...args];
-
-      for (let i = 0; i < arr.length; i++) {
-        numArr.push(arr[i]);
-      }
-      if (arr.length === 0) {
-        numArr.shift();
-      }
-
-      return callback(...numArr);
-    }
+function bind(callback, ...params) {
+  return (...paramsToBind) => {
+    return callback(...params, ...paramsToBind);
   };
 }
 
