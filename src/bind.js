@@ -18,22 +18,7 @@
  *
  * @return {Function}
  */
-function bind(...callback) {
-  const fun = callback[0];
-  const argumentsBase = [];
-  if (callback.length > 1) {
-    for (let i = 1; i < callback.length; i++) {
-      argumentsBase[i - 1] = callback[i];
-    }
-  }
-  return (...argumentsExtra) => {
-    if (argumentsExtra !== undefined) {
-      for (const item of argumentsExtra) {
-        argumentsBase.push(item);
-      }
-    }
-    return fun(...argumentsBase);
-  };
+function bind(callback, ...arg) {
+  return (...newArg) => callback(...arg, ...newArg);
 }
-
 module.exports = bind;
