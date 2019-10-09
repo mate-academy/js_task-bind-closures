@@ -20,7 +20,6 @@
  */
 function bind(callback, ...otherParams) {
   return (...moreParams) => callback(...otherParams, ...moreParams);
-  };
 }
 
 module.exports = bind;
