@@ -18,8 +18,11 @@
  *
  * @return {Function}
  */
-function bind(callback) {
-  // write code here
+
+function bind(callback, ...args) {
+  return function device(...deviceArgs) {
+    return callback(...args, ...deviceArgs);
+  };
 }
 
 module.exports = bind;
