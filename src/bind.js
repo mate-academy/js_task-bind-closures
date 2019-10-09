@@ -19,7 +19,7 @@
  * @return {Function}
  */
 function bind(callback, ...otherParams) {
-  return (...moreParams) => {
+  return (...moreParams) => callback(...otherParams, ...moreParams);
     return callback(...otherParams, ...moreParams);
   };
 }
