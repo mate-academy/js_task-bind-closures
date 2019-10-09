@@ -19,13 +19,7 @@
  * @return {Function}
  */
 function bind(callback, ...args) {
-  const numArgs = [...args];
-
-  return function device(...params) {
-    params.forEach(n => numArgs.push(n));
-
-    return numArgs;
-  };
+  return (...numbers) => callback(...args, ...numbers);
 }
 
 module.exports = bind;
