@@ -16,10 +16,11 @@
  *
  * @param {Function} callback
  *
+ * @param argsBase
  * @return {Function}
  */
-function bind(callback) {
-  // write code here
+function bind(callback, ...argsBase) {
+  return (...argsExtra) => callback(...argsBase, ...argsExtra);
 }
 
 module.exports = bind;
