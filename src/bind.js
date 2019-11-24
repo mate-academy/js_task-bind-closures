@@ -19,7 +19,11 @@
  * @return {Function}
  */
 function bind(callback) {
-  // write code here
+  const params = [...arguments].slice(1);
+  const fn = [...arguments][0];
+  return function() {
+    return fn(...params.concat(...arguments));
+  };
 }
 
 module.exports = bind;
