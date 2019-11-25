@@ -18,8 +18,16 @@
  *
  * @return {Function}
  */
-function bind(callback) {
-  // write code here
+function bind(...callback) {
+  let buffer = [...callback.slice(1)];
+
+  return function(...args) {
+    if (arguments.length !== 0) {
+      buffer = [...buffer, ...args];
+    }
+
+    return callback[0](...buffer);
+  };
 }
 
 module.exports = bind;
