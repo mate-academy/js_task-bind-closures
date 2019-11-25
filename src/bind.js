@@ -21,7 +21,6 @@
 function bind(callback, ...base) {
   return function(...extra) {
     return callback(...base, ...extra);
-    // return base.concat(extra);
   };
 }
 
