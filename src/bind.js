@@ -19,13 +19,13 @@
  * @return {Function}
  */
 function bind(callback, ...params) {
-  let paramsArr = [...params];
+  let result = [...params];
 
   return function device(...args) {
     callback();
-    paramsArr = [...paramsArr, ...args];
+    result = [...result, ...args];
 
-    return paramsArr;
+    return result;
   };
 }
 
