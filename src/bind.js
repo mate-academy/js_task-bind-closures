@@ -19,7 +19,7 @@
  * @return {Function}
  */
 function bind(callback, ...params) {
-  let result = [...params];
+  let result;
 
   return function device(...args) {
     result = [...params, ...args];
