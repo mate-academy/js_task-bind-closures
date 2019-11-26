@@ -18,8 +18,18 @@
  *
  * @return {Function}
  */
-function bind(callback) {
-  // write code here
+function bind(callback, ...args1) {
+  let array = [];
+
+  return function(...args2) {
+    array = [...array, ...args1];
+
+    if (args2 !== undefined) {
+      array = [...args1, ...args2];
+    }
+
+    return array;
+  };
 }
 
 module.exports = bind;
