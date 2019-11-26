@@ -16,10 +16,20 @@
  *
  * @param {Function} callback
  *
+ * @param args
  * @return {Function}
  */
-function bind(callback) {
-  // write code here
+
+function bind(callback, ...args) {
+  let listOfParams;
+
+  const device = function(...params) {
+    listOfParams = [...args, ...params];
+
+    return listOfParams;
+  };
+
+  return device;
 }
 
 module.exports = bind;
