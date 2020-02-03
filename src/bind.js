@@ -18,11 +18,14 @@
  *
  * @return {Function}
  */
-function bind(callback, ...arg) {
-  const buffer = [...arg];
+
+function bind(callback, ...args) {
+  const buffer = [...args];
 
   return function(...params) {
-    buffer.push(...params);
+    const prev = callback(...params);
+
+    buffer.push(...prev);
 
     return buffer;
   };
