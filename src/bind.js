@@ -19,7 +19,17 @@
  * @return {Function}
  */
 function bind(callback) {
-  // write code here
+  const bindArguments = [...arguments];
+
+  bindArguments.shift();
+
+  return function() {
+    const deviceArguments = [...arguments];
+
+    bindArguments.push(...deviceArguments);
+
+    return bindArguments;
+  };
 }
 
 module.exports = bind;
