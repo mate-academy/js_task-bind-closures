@@ -19,7 +19,11 @@
  * @return {Function}
  */
 function bind(callback) {
-  // write code here
+  const [fn, ...values] = [...arguments];
+
+  return function(...args) {
+    return fn(...values, ...args);
+  };
 }
 
 module.exports = bind;
