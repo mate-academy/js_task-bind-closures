@@ -18,8 +18,13 @@
  *
  * @return {Function}
  */
-function bind(callback) {
-  // write code here
-}
+function bind(callback, ...arg) {
+  const buffer = [...arg];
 
+  return function(...params) {
+    buffer.push(...params);
+
+    return buffer;
+  };
+}
 module.exports = bind;
