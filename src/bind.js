@@ -19,7 +19,15 @@
  * @return {Function}
  */
 function bind(callback) {
-  // write code here
+  const numbers = [...arguments];
+
+  numbers.shift();
+
+  return function(...args) {
+    callback(...numbers, ...args);
+
+    return [...numbers, ...args];
+  };
 }
 
 module.exports = bind;
