@@ -19,11 +19,10 @@
  * @return {Function}
  */
 function bind(callback, ...args) {
-  const callb = callback;
   const startArgs = args;
 
   function start() {
-    return callb(...startArgs, ...arguments);
+    return callback(...startArgs, ...arguments);
   }
 
   return start;
