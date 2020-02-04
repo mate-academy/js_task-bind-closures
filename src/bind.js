@@ -19,15 +19,9 @@
  * @return {Function}
  */
 function bind(callback, ...paramsBind) {
-  let parameters;
-
-  const device = function(...paramsDevice) {
-    parameters = [...paramsBind, ...paramsDevice];
-
-    return parameters;
+  return function(...paramsDevice) {
+    return callback(...paramsBind, ...paramsDevice);
   };
-
-  return device;
 }
 
 module.exports = bind;
