@@ -18,8 +18,18 @@
  *
  * @return {Function}
  */
-function bind(callback) {
-  // write code here
+function bind(callback, ...args) {
+  let cache = args;
+
+  return function(...args2) {
+    if (!args2) {
+      return [];
+    }
+
+    cache = [ ...args, ...args2 ];
+
+    return cache;
+  };
 }
 
 module.exports = bind;
