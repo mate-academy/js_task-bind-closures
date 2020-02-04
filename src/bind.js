@@ -19,10 +19,8 @@
  * @return {Function}
  */
 function bind(callback, ...baseArg) {
-  const func = callback;
-
   return function(...extraArg) {
-    return func(...baseArg, ...extraArg);
+    return callback(...baseArg, ...extraArg);
   };
 }
 
