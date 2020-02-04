@@ -19,8 +19,8 @@
  * @return {Function}
  */
 function bind(callback, ...args) {
-  return function(...args2) {
-    return callback(...args, ...args2);
+  return function(...extraArgs) {
+    return callback(...args, ...extraArgs);
   };
 }
 
