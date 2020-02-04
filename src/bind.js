@@ -20,14 +20,9 @@
  */
 
 function bind(callback, ...args) {
-  const buffer = [...args];
-
   return function(...params) {
-    const prev = callback(...params);
-
-    buffer.push(...prev);
-
-    return buffer;
+    return callback(...args, ...params);
   };
 }
+
 module.exports = bind;
