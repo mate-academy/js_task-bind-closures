@@ -19,7 +19,20 @@
  * @return {Function}
  */
 function bind(callback) {
-  // write code here
+  let result = [];
+
+  if (arguments.length > 0) {
+    result = [...arguments];
+    result = result.slice(1, result.length);
+
+    return function f() {
+      result = [...result, ...arguments];
+
+      return result;
+    };
+  };
+
+  return result;
 }
 
 module.exports = bind;
