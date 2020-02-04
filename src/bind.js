@@ -18,21 +18,10 @@
  *
  * @return {Function}
  */
-function bind(callback) {
-  let result = [];
-
-  if (arguments.length > 0) {
-    result = [...arguments];
-    result = result.slice(1, result.length);
-
-    return function f() {
-      result = [...result, ...arguments];
-
-      return result;
-    };
+function bind(callback, ...restArg) {
+  return function f(...moreArg) {
+    return [...restArg, ...moreArg];
   };
-
-  return result;
 }
 
 module.exports = bind;
