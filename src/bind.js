@@ -18,7 +18,7 @@
  *
  * @return {Function}
  */
-function bind(callback) {
+function bind() {
   const [fn, ...values] = [...arguments];
 
   return function(...args) {
