@@ -19,9 +19,9 @@
  * @param params
  * @return {Function}
  */
-function bind(callback, ...params) {
+function bind(callback, ...parametres) {
   function extra(...value) {
-    return [...params, ...value];
+    return [...parametres, ...value];
   }
 
   return extra;
