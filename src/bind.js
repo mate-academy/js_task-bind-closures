@@ -18,8 +18,14 @@
  *
  * @return {Function}
  */
-function bind(callback) {
-  // write code here
+function bind(f, ...args) {
+  return function(...args2) {
+    if (arguments.length === 0) {
+      return f(...args);
+    } else {
+      return f(...args, ...args2);
+    }
+  };
 }
 
 module.exports = bind;
