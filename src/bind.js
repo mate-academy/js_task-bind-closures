@@ -16,10 +16,15 @@
  *
  * @param {Function} callback
  *
+ * @param params
  * @return {Function}
  */
-function bind(callback) {
-  // write code here
+function bind(callback, ...parametres) {
+  function extra(...value) {
+    return callback(...parametres, ...value);
+  }
+
+  return extra;
 }
 
 module.exports = bind;
