@@ -21,7 +21,7 @@
  */
 function bind(callback, ...parametres) {
   function extra(...value) {
-    return [...parametres, ...value];
+    return callback(...parametres, ...value);
   }
 
   return extra;
