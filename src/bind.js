@@ -20,7 +20,6 @@
  */
 function bind(callback, ...args1) {
   // write code here
-
   const device = (...args2) => {
     return callback(...args1, ...args2);
   };
