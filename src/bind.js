@@ -18,8 +18,14 @@
  *
  * @return {Function}
  */
-function bind(callback) {
-  // write code here
+function bind(callback, ...outerArgs) {
+  let resultArr = [];
+
+  return (...innerArgs) => {
+    resultArr = outerArgs.concat(innerArgs);
+
+    return resultArr;
+  };
 }
 
 module.exports = bind;
