@@ -18,8 +18,10 @@
  *
  * @return {Function}
  */
-function bind(callback) {
-  // write code here
+function bind(callback, ...firstArgs) {
+  return (...secondArgs) => {
+    return firstArgs.concat(secondArgs);
+  };
 }
 
 module.exports = bind;
