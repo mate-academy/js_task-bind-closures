@@ -19,9 +19,7 @@
  * @return {Function}
  */
 function bind(callback, ...params) {
-  return (...args) => {
-    return callback(...params, ...args);
-  };
+  return (...args) => callback(...params, ...args);
 }
 
 module.exports = bind;
