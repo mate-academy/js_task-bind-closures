@@ -18,8 +18,14 @@
  *
  * @return {Function}
  */
-function bind(callback) {
-  // write code here
+function bind(callback, ...args) {
+  return function(...argsToAdd) {
+    if (argsToAdd.length !== 0) {
+      return callback(...args.concat(argsToAdd));
+    } else {
+      return callback(...args);
+    }
+  };
 }
 
 module.exports = bind;
