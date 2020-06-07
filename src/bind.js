@@ -20,9 +20,7 @@
  */
 function bind(callback, ...params) {
   return (...extra) => {
-    const storage = [ ...params, ...extra ];
-
-    return callback.apply(null, storage);
+    return callback(...params, ...extra);
   };
 }
 
