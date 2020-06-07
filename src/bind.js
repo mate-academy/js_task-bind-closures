@@ -18,8 +18,10 @@
  *
  * @return {Function}
  */
-function bind(callback) {
-  // write code here
+function bind(callback, ...params) {
+  return (...extra) => {
+    return callback(...params, ...extra);
+  };
 }
 
 module.exports = bind;
