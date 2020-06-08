@@ -18,13 +18,9 @@
  *
  * @return {Function}
  */
-function bind(callback) {
-  const firstElements = [...arguments];
-
-  firstElements.shift();
-
-  return (...secondElements) => {
-    return [...firstElements, ...secondElements];
+function bind(callback, ...args) {
+  return (...elements) => {
+    return callback(...args, ...elements);
   };
 }
 
