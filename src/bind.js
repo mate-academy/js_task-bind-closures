@@ -19,13 +19,10 @@
  * @return {Function}
  */
 function bind(callback) {
-  let [ , ...params ] = [...arguments];
+  const [ , ...params ] = [...arguments];
 
   return (...extraParams) => {
-    params = [ ...params, ...extraParams ];
-    callback(params);
-
-    return params;
+    return callback(...params, ...extraParams);
   };
 }
 module.exports = bind;
