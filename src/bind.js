@@ -18,10 +18,8 @@
  *
  * @return {Function}
  */
-function bind(callback, ...args) {
-  return function device(...args2) {
-    return [...args, ...args2];
-  };
+function bind(f, ...argsBase) {
+  return (...extra) => f(...argsBase.concat(extra));
 }
 
 module.exports = bind;
