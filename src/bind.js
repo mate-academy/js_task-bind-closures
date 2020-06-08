@@ -18,8 +18,10 @@
  *
  * @return {Function}
  */
-function bind(callback) {
-  // write code here
+function bind(...arg) {
+  return function device(...secondArgs) {
+    return [...[...arg].slice(1), ...secondArgs];
+  };
 }
 
 module.exports = bind;
