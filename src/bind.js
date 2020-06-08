@@ -19,7 +19,13 @@
  * @return {Function}
  */
 function bind(callback) {
-  // write code here
+  const firstElements = [...arguments];
+
+  firstElements.shift();
+
+  return (...secondElements) => {
+    return [...firstElements, ...secondElements];
+  };
 }
 
 module.exports = bind;
