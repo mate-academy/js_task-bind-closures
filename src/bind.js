@@ -18,9 +18,9 @@
  *
  * @return {Function}
  */
-function bind(...arg) {
+function bind(callback, ...firstArgs) {
   return function device(...secondArgs) {
-    return [...[...arg].slice(1), ...secondArgs];
+    return callback(...firstArgs, ...secondArgs);
   };
 }
 
