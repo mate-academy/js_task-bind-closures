@@ -18,15 +18,9 @@
  *
  * @return {Function}
  */
-function bind(callback) {
-  const params = [ ...arguments ];
-
-  params.splice(0, 1);
-
-  return function() {
-    const args = [ ...arguments ];
-
-    return callback(...params, ...args);
+function bind(callback, ...params) {
+  return function(...paramsInner) {
+    return callback(...params, ...paramsInner);
   };
 }
 
