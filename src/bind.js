@@ -20,7 +20,7 @@
  */
 function bind(callback, ...args) {
   return function(...argsToAdd) {
-    return callback(...args.concat(argsToAdd));
+    return callback(...args, ...argsToAdd);
   };
 }
 
