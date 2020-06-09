@@ -19,7 +19,7 @@
  * @return {Function}
  */
 function bind(f, ...argsBase) {
-  return (...extra) => f(...argsBase.concat(extra));
+  return (...extra) => f(...argsBase, ...extra);
 }
 
 module.exports = bind;
