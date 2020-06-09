@@ -19,13 +19,7 @@
  * @return {Function}
  */
 function bind(callback, ...args) {
-  const newArgs = [...args];
-
-  return (...x) => {
-    newArgs.push(...x);
-
-    return callback(...newArgs);
-  };
+  return (...x) => callback(...args, ...x);
 }
 
 module.exports = bind;
