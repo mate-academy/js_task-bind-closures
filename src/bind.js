@@ -18,11 +18,11 @@
  *
  * @return {Function}
  */
-function bind(callback, ...args1) {
+function bind(callback, ...baseArgs) {
   // write code here
 
-  return function(...args2) {
-    return callback(...args1, ...args2);
+  return function(...extraArgs) {
+    return callback(...baseArgs, ...extraArgs);
   };
 }
 
