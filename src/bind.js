@@ -18,9 +18,7 @@
  *
  * @return {Function}
  */
-function bind(callback) {
-  const [ , ...params ] = [...arguments];
-
+function bind(callback, ...params) {
   return (...extraParams) => {
     return callback(...params, ...extraParams);
   };
