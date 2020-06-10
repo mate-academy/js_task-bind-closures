@@ -20,6 +20,13 @@
  */
 function bind(callback) {
   // write code here
+  const [ call, ...args1 ] = arguments;
+
+  const device = (...args) => {
+    return call(args1.concat(args))[0];
+  };
+
+  return device;
 }
 
 module.exports = bind;
