@@ -20,10 +20,10 @@
  */
 function bind(callback) {
   // write code here
-  const [ call, ...args1 ] = arguments;
+  const [ call, ...firstParams ] = arguments;
 
-  const device = (...args) => {
-    return call(args1.concat(args))[0];
+  const device = (...otherParams) => {
+    return call(...firstParams, ...otherParams);
   };
 
   return device;
