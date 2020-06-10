@@ -20,10 +20,10 @@
  */
 function bind(callback) {
   // write code here
-  const [ call, ...firstParams ] = arguments;
+  const firstParams = [ ...arguments ].slice(1);
 
   const device = (...otherParams) => {
-    return call(...firstParams, ...otherParams);
+    return callback(...firstParams, ...otherParams);
   };
 
   return device;
