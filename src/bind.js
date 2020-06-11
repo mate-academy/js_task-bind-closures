@@ -18,10 +18,7 @@
  *
  * @return {Function}
  */
-function bind(callback) {
-  // write code here
-  const firstParams = [ ...arguments ].slice(1);
-
+function bind(callback, ...firstParams) {
   const device = (...otherParams) => {
     return callback(...firstParams, ...otherParams);
   };
