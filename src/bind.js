@@ -18,8 +18,10 @@
  *
  * @return {Function}
  */
-function bind(callback) {
-  // write code here
+function bind(callback, ...factoryParams) {
+  return function device(...deviceParams) {
+    return callback(...factoryParams, ...deviceParams);
+  };
 }
 
 module.exports = bind;
