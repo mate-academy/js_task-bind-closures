@@ -15,11 +15,10 @@
  * device(4, 5, 6); // 1, 2, 3, 4, 5, 6
  *
  * @param {Function} callback
+ * @param [base]
  *
  * @return {Function}
  */
-function bind(callback) {
-  // write code here
-}
+const bind = (callback, ...base) => (...extra) => callback(...base, ...extra);
 
 module.exports = bind;
