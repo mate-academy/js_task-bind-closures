@@ -18,8 +18,24 @@
  *
  * @return {Function}
  */
-function bind(callback) {
-  // write code here
-}
+
+// const bind = (callback, ...baseParams) => {
+//   let array = [];
+
+//   if (baseParams.length) {
+//     array = array.concat(baseParams);
+//   }
+
+//   return (...extraParams) => {
+//     if (extraParams.length) {
+//       array = array.concat(extraParams);
+//     }
+//     return callback(...array);
+//   };
+// };
+
+const bind = (callback, ...baseParams) => {
+  return (...extraParams) => callback(...baseParams, ...extraParams);
+};
 
 module.exports = bind;
