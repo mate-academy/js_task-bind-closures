@@ -18,8 +18,16 @@
  *
  * @return {Function}
  */
-function bind(callback) {
-  // write code here
+function bind(callback, ...args) {
+  const boundArgs = [...args];
+
+  return function(...nums) {
+    for (const num of nums) {
+      boundArgs.push(num);
+    }
+
+    return boundArgs;
+  };
 }
 
 module.exports = bind;
