@@ -19,7 +19,8 @@
  * @return {Function}
  */
 function bind(callback) {
-  // write code here
+  return (...extraParams) =>
+    callback(...[...arguments].slice(1, arguments.length), ...extraParams);
 }
 
 module.exports = bind;
