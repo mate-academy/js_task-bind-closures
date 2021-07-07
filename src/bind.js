@@ -18,8 +18,7 @@
  *
  * @return {Function}
  */
-function bind(callback) {
-  // write code here
-}
+const bind = (callback, ...argsFactory) =>
+  (...argsDevice) => callback(...argsFactory, ...argsDevice);
 
 module.exports = bind;
