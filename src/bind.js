@@ -18,8 +18,15 @@
  *
  * @return {Function}
  */
-function bind(callback) {
-  // write code here
+function bind(callback, ...numbers) {
+  let result = [...numbers];
+  const addToResult = function(...numbersAgain) {
+    result = [...result, ...numbersAgain];
+
+    return result;
+  };
+
+  return addToResult;
 }
 
 module.exports = bind;
